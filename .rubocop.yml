@@ -1,0 +1,24 @@
+AllCops:
+  Exclude:
+    - 'Gemfile'
+    - 'Guardfile'
+    - 'Rakefile'
+    - '.git-hooks/**/*'
+    - 'app/views/**/*'
+    - 'bin/**/*'
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'lib/**/*'
+    - 'log/**/*'
+    - 'node_modules/**/*'
+    - 'script/**/*'
+    - 'spec/**/*'
+    - 'tmp/**/*'
+    - 'vendor/**/*'
+  TargetRubyVersion: 2.3
+Lint/HandleExceptions:
+  Enabled: false
+Style/AccessorMethodName:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
