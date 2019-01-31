@@ -28,7 +28,8 @@ gem 'overcommit', groups: [:development]
 
 gem 'puma', '~> 3.11'
 
-gem 'rails', path: "~/.rvm/gems/ruby-2.6.0/bundler/gems/rails-1d26c86b8611"
+# gem 'rails', path: "~/.rvm/gems/ruby-2.6.0/bundler/gems/rails-1d26c86b8611"
+gem 'rails', github: 'rails/rails', branch: 'master'
 gem 'rspec-rails', groups: [:test]
 gem 'rubocop', groups: [:test]
 

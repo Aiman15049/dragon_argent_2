@@ -6,15 +6,15 @@ default: &default
 
 development:
   <<: *default
-  database: dragon_argent_development 
+  database: dragon_argent_2_development 
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: dragon_argent_test 
+  database: dragon_argent_2_test 
 
 production:
   <<: *default
-  database: dragon_argent_production 
+  database: dragon_argent_2_production 
