@@ -129,6 +129,8 @@ GEM
     chromedriver-helper (2.1.0)
       archive-zip (~> 0.10)
       nokogiri (~> 1.8)
+    codacy-coverage (2.1.0)
+      simplecov
     coderay (1.1.2)
     concurrent-ruby (1.1.4)
     coveralls (0.7.1)
@@ -354,6 +356,7 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   chromedriver-helper
+  codacy-coverage
   coveralls
   devise
   factory_bot_rails

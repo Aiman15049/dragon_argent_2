@@ -7,6 +7,7 @@ gem 'byebug', platforms: [:mri, :mingw, :x64_mingw], groups: [:development, :tes
 
 gem 'capybara', '>= 2.15', groups: [:test]
 gem 'chromedriver-helper', groups: [:test]
+gem 'codacy-coverage', require: false
 gem 'coveralls', groups: [:test]
 
 gem 'devise'
