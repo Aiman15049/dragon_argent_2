@@ -18,13 +18,17 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 
-SimpleCov.formatter = Coveralls::SimpleCov::Formatter
-SimpleCov.start do
-  add_filter '/indices/'
-  add_filter 'spec/'
-  add_filter 'spec/'
-end
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
+    SimpleCov::Formatter::HTMLFormatter,
+    Codacy::Formatter
+])
 
+SimpleCov.start do
+  add_filter '.gems'
+  add_filter 'pkg'
+  add_filter 'spec'
+  add_filter 'vendor'
+end
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
     with.test_framework :rspec
