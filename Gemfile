@@ -22,7 +22,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'listen', '>= 3.0.5', '< 3.2', groups: [:development]
 
-gem 'morse_spec_helpers', groups: [:development]
+gem 'morse_spec_helpers',  groups: [:development]
 gem 'mysql2'
 
 gem 'overcommit', groups: [:development]
