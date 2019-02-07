@@ -3,6 +3,9 @@
 default: &default
   source_path: app/javascript
   source_entry_path: packs
+  # Add in the Image and stylesheet paths - Ade
+  image_entry: images
+  stylesheets_entry: stylesheets
   public_root_path: public
   public_output_path: packs
   cache_path: tmp/cache/webpacker
@@ -70,10 +73,9 @@ development:
     use_local_ip: false
     quiet: false
     headers:
-      'Access-Control-Allow-Origin': '*'
+      "Access-Control-Allow-Origin": "*"
     watch_options:
-      ignored: '**/node_modules/**'
-
+      ignored: "**/node_modules/**"
 
 test:
   <<: *default

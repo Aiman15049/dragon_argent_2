@@ -1,15 +1,59 @@
 {
   "name": "dragon_argent",
   "private": true,
+  "browserslist": [
+    ">0.25%",
+    "IE >= 11",
+    "not op_mini all"
+  ],
   "dependencies": {
+    "@morsedigital/webpack-defaults": "5.4.5",
     "@rails/actioncable": "^6.0.0-alpha",
     "@rails/activestorage": "^6.0.0-alpha",
     "@rails/ujs": "^6.0.0-alpha",
     "@rails/webpacker": "^4.0.0-rc.7",
-    "turbolinks": "^5.2.0"
+    "bootstrap": "^4.2.1",
+    "bootstrap.native": "^2.0.25",
+    "css-hot-loader": "^1.4.3",
+    "css-loader": "^2.1.0",
+    "file-loader": "^3.0.1",
+    "fontfaceobserver": "^2.1.0",
+    "imagemin-webp-webpack-plugin": "^3.1.0",
+    "moment": "^2.24.0",
+    "moment-locales-webpack-plugin": "^1.0.7",
+    "svg4everybody": "^2.1.9",
+    "webpack": "^4.29.2",
+    "webpack-cli": "^3.2.3",
+    "webpack-config-utils": "^2.3.1",
+    "webpack-merge": "^4.2.1"
   },
   "version": "0.1.0",
   "devDependencies": {
+    "@djforth/ap_sprites": "^3.0.0",
+    "@djforth/ap_utils": "^3.1.2",
+    "@djforth/stubs-spy-manager-jest": "^1.2.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.1.0",
+    "eslint": "^5.9.0",
+    "eslint-config-morsedigital-react": "2.0.2-0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-prettier": "^3.0.1",
+    "jest": "^24.1.0",
+    "jest-fetch-mock": "^2.1.0",
+    "stylelint": "^9.10.1",
+    "stylelint-config-standard": "^18.2.0",
+    "stylelint-scss": "^3.5.2",
+    "webpack-bundle-analyzer": "^3.0.3",
     "webpack-dev-server": "^3.1.14"
+  },
+  "scripts": {
+    "lint": "eslint app/javascript/packs/** --ext .js,.jsx --fix",
+    "lint:tests": "eslint app/javascript/__tests__/** --fix",
+    "sprites": "asset-pipeline-sprites",
+    "sprites:svg": "asset-pipeline-sprites --svginline",
+    "stylelint": "stylelint 'app/javascript/stylesheets/**/*.scss' --fix --syntax scss",
+    "test": "jest --coverage --config jest.config.json",
+    "test:watch": "jest --watch --config jest.config.json"
   }
 }

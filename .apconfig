@@ -1,0 +1,10 @@
+{
+  "karma": {
+    "input": "./app/javascript/spec/test_bundle.js"
+  }
+  , "sprites":{
+    "pngFolder": "pngs"
+    , "svgInlineFolder": "inlinesvg"
+    , "svgInlineOutput": "app/javascript/images"
+  }
+}
