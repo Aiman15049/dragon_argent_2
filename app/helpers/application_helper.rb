@@ -9,25 +9,29 @@ module ApplicationHelper
   end
 
   def image_pack_tag(name, **options)
-    return image_tag path, **options unless name =~ /.(jpe?g|png)/
+    unless name =~ /.(jpe?g|png)/
+      return image_tag webpacker_manifest_path(name, options), **options
+    end
 
-    path = asset_path(Webpacker.manifest.lookup!(name), **options)
-    picture_tag(path_webp, path, options).html_safe
+    picture_tag(name, options).html_safe
   end
 
   private
 
-  def picture_tag(webpacker_manifest_path, path, options)
-    '<picture>' /
-      "<source srcset='#{webpacker_manifest_path}' type='image/webp'>" /
-      "  <source srcset='#{path}' type='image/jpeg'>" /
-      "  #{image_tag path, **options}" /
+  def picture_tag(name, options)
+    '<picture>' \
+      "<source srcset='#{webp_path(name, options)}' type='image/webp'>" \
+      "  <source srcset='#{path}' type='image/jpeg'>" \
+      "  #{image_tag webpacker_manifest_path(name, options), **options}" \
       '</picture>'.html_safe
+  end
+
+  def webp_path(name, options)
+    webpacker_manifest_path(name.gsub(/.(jpe?g|png)/, '.webp'), options)
   end
 
   def webpacker_manifest_path(name, options)
     asset_path(Webpacker.manifest
-                        .lookup!(name.gsub(/.(jpe?g|png)/,
-                                           '.webp')), **options)
+                        .lookup!(name), **options)
   end
 end
