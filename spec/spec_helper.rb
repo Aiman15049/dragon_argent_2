@@ -1,3 +1,4 @@
+require 'codacy-coverage'
 Codacy::Reporter.start
 
 RSpec.configure do |config|

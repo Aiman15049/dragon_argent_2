@@ -8,7 +8,6 @@ require 'morse_spec_helpers'
 require 'shoulda/matchers'
 require 'factory_bot'
 require 'simplecov'
-require 'codacy-coverage'
 include MorseSpecHelpers
 
 
