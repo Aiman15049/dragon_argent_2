@@ -19,10 +19,11 @@ module ApplicationHelper
   private
 
   def picture_tag(name, options)
+    path = webpacker_manifest_path(name, options)
     '<picture>' \
       "<source srcset='#{webp_path(name, options)}' type='image/webp'>" \
       "  <source srcset='#{path}' type='image/jpeg'>" \
-      "  #{image_tag webpacker_manifest_path(name, options), **options}" \
+      "  #{image_tag path, **options}" \
       '</picture>'.html_safe
   end
 
