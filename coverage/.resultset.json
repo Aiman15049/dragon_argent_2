@@ -1,7 +1,14 @@
 {
   "RSpec": {
     "coverage": {
+      "/Users/terry/sites/dragon_argent_2/app/controllers/home_controller.rb": [
+        null,
+        null,
+        1,
+        1,
+        null
+      ]
     },
-    "timestamp": 1548854120
+    "timestamp": 1549502995
   }
 }
