@@ -1,0 +1,37 @@
+<% dynamic_panels.each do |dynamic_panel| %>
+  <tr>
+    <td nowrap='nowrap'>
+      <%= link_to move_to_bottom_cms_dynamic_page_dynamic_panel_path(dynamic_page, dynamic_panel), data: { remote: true } do %>
+        <i class="material-icons">file_download</i>
+      <% end %>
+      <%= link_to move_lower_cms_dynamic_page_dynamic_panel_path(dynamic_page, dynamic_panel), data: { remote: true } do %>
+        <i class="material-icons">arrow_drop_down</i>
+      <% end %>
+      <%= link_to move_higher_cms_dynamic_page_dynamic_panel_path(dynamic_page, dynamic_panel), data: { remote: true } do %>
+        <i class="material-icons">arrow_drop_up</i>
+      <% end %>
+      <%= link_to move_to_top_cms_dynamic_page_dynamic_panel_path(dynamic_page, dynamic_panel), data: { remote: true } do %>
+        <i class="material-icons">file_upload</i>
+      <% end %>
+    </td>
+    <td><%= dynamic_panel.title %></td>
+    <td><%= dynamic_panel.headline.truncate(40) %></td>
+    <% unless dynamic_page.title == 'Home'%>
+      <td><%= dynamic_panel.anchor %></td>
+    <% end %>
+    <td><%= dynamic_panel.dynamic_panel_type.title %></td>
+    <td><%= dynamic_panel.enquiry_link %></td>
+    <td>
+    </td>
+    <td class="table-link">
+      <%= link_to edit_cms_dynamic_page_dynamic_panel_path(dynamic_page, dynamic_panel) do %>
+        <i class="material-icons">edit</i>
+      <% end %>
+    </td>
+    <td class="table-link">
+      <%= link_to cms_dynamic_page_dynamic_panel_path(dynamic_page, dynamic_panel), method: :delete, data: { confirm: 'Are you sure you want to delete this Dynamic Panel?' } do %>
+        <i class="material-icons">delete</i>
+      <% end %>
+    </td>
+  </tr>
+<% end %>

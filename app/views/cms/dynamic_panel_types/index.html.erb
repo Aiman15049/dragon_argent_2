@@ -1,0 +1,18 @@
+<% breadcrumb :cms_dynamic_panel_types %>
+<h1 class="cms-header"><i class="material-icons">star_rate</i>Dynamic Panel Types</h1>
+<% if dynamic_panel_types.any? %>
+  <%= link_to 'Create Dynamic Panel Type', new_cms_dynamic_panel_type_path, class: 'btn btn-dark' %>
+  <table class="table table-striped table-responsive">
+    <thead class="table-inverse">
+      <th> &nbsp;</th>
+      <th> Title</th>
+      <th> Cms Name </th>
+      <th colspan=3> Actions</th>
+    </thead>
+    <tbody id='index_rows'>
+      <%= render "cms/dynamic_panel_types/partials/index_rows" %>
+    </tbody>
+</table>
+<% else %>
+  <div>There are no dynamic_panel_types on the system. Why not add one <%= link_to 'here?', new_cms_dynamic_panel_type_path %></div>
+<% end %>

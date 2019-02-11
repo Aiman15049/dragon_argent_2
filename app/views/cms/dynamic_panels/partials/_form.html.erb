@@ -1,0 +1,23 @@
+<div class="container">
+  <%= simple_form_for [:cms, :dynamic_page, dynamic_panel] do |f| %>
+    <fieldset class="form-group">
+      <p><%= "Creating a new dynamic Panel for Page: #{dynamic_page.title} " %></p>
+      <p>Click <%= link_to "here", cms_dynamic_pages_path %> if not correct.</p>
+      <%= f.hidden_field :dynamic_page_id, value: params[:dynamic_page_id] %>
+      <%= f.input :title, label: 'Title' %>
+      <% if !dynamic_panel.new_record? && (dynamic_panel.dynamic_panel_type.title.downcase.include? "map") %>
+        <p>Select the Mappable Categories you wish to show on this panel</p>
+        <%= f.association :mappable_categories, as: :check_boxes, collection: nested_check_boxes(MappableCategory.where(owner_id: project.id, ancestry: nil).order(:title)) %>
+      <% end %>
+      <%= f.input :dynamic_panel_type_id, label: 'Dynamic Panel Type', collection: DynamicPanelType.all, include_blank: false %>
+      <%= f.input :headline, label: 'Headline' %>
+      <%= f.input :column_2, label: 'Column 2' %>
+      <%= f.input :text, label: 'Text', as: :trix_editor %>
+      <%= f.input :youtube_url, label: 'Youtube Url' %>
+      <%= asset_input f, dynamic_panel, :asset %>
+      <p>Submit an image at least 350x214px</p>
+      <%= f.input :enquiry_link, label: "Enquiry Form" %>
+    </fieldset>
+    <%= f.button :submit, class: 'btn btn-dark'  %>
+  <% end %>
+</div>

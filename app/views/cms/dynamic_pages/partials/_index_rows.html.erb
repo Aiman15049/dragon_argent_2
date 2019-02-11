@@ -1,0 +1,46 @@
+<% @dynamic_pages.each do |dynamic_page| %>
+  <tr>
+    <td nowrap='nowrap'>
+      <%= link_to move_to_bottom_cms_dynamic_page_path(dynamic_page), data: { remote: true } do %>
+        <i class="material-icons">file_download</i>
+      <% end %>
+      <%= link_to move_lower_cms_dynamic_page_path(dynamic_page), data: { remote: true } do %>
+        <i class="material-icons">arrow_drop_down</i>
+      <% end %>
+      <%= link_to move_higher_cms_dynamic_page_path(dynamic_page), data: { remote: true } do %>
+        <i class="material-icons">arrow_drop_up</i>
+      <% end %>
+      <%= link_to move_to_top_cms_dynamic_page_path(dynamic_page), data: { remote: true } do %>
+        <i class="material-icons">file_upload</i>
+      <% end %>
+    </td>
+    <td class="table-link">
+      <%= tree_branch dynamic_page %>
+      <%= link_to "#{dynamic_page.title}", edit_cms_dynamic_page_path(dynamic_page) %>
+    </td>
+    <td><%= dynamic_page.descriptor %></td>
+    <td>
+      <%= link_to cms_dynamic_page_dynamic_panels_path(dynamic_page) do %>
+        <i class="material-icons">content_copy</i>
+      <% end %>
+    </td>
+    <td>
+      <%= link_to new_child_cms_dynamic_page_path(dynamic_page) do %>
+        <i class="material-icons">child_care</i>
+      <% end %>
+    </td>
+    <td class="table-link">
+      <%= link_to edit_cms_dynamic_page_path(dynamic_page) do %>
+        <i class="material-icons">edit</i>
+      <% end %>
+    </td>
+    <td class="table-link">
+      <%= link_to cms_dynamic_page_path(dynamic_page), method: :delete, data: { confirm: 'Are you sure you want to delete this page?' } do %>
+        <i class="material-icons">delete</i>
+      <% end %>
+    </td>
+  </tr>
+  <% if dynamic_page.children.any? %>
+    <%= render partial: 'cms/dynamic_pages/partials/index_rows', locals: { dynamic_pages: dynamic_page.children } %>
+  <% end %>
+<% end %>

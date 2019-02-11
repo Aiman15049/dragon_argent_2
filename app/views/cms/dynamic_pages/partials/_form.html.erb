@@ -1,0 +1,13 @@
+<div class="container">
+  <%= simple_form_for [:cms, @dynamic_page] do |f| %>
+      <fieldset class="form-group">
+      <%= f.input :intro, label: 'Intro' %>
+      <%= f.input :title, label: 'Title' %>
+    <fieldset class="form-group">
+      <legend>Meta Data</legend>
+      <%= f.input :meta_title, label: 'Meta Title' %>
+      <%= f.input :meta_description, label: 'Meta Description' %>
+    </fieldset>
+    <%= f.button :submit, class: 'btn btn-dark'  %>
+  <% end %>
+</div>

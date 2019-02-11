@@ -3,8 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.1'
 
+gem 'ancestry'
+gem 'better_errors'
 gem 'byebug', platforms: [:mri, :mingw, :x64_mingw], groups: [:development, :test]
-
 gem 'capybara', '>= 2.15', groups: [:test]
 gem 'chromedriver-helper', groups: [:test]
 gem 'codacy-coverage', require: false
@@ -38,6 +39,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'selenium-webdriver', groups: [:test]
 gem 'shoulda-matchers', groups: [:test], git: 'https://github.com/morsedigital/shoulda-matchers'
 gem 'simplecov', groups: [:test]
+gem 'simple_form' # Easy for builder [Terry]
 gem 'spring', groups: [:test]
 gem 'spring-commands-rspec', groups: [:test]
 
